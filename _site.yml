@@ -1,0 +1,77 @@
+name: "CE301"
+
+output_dir: "."
+
+navbar:
+  type: inverse
+  title: "CE301 - Estatística Básica"
+
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+
+    - text: "Aulas"
+      icon: fa-calendar
+      href: aulas.html
+
+    - text: "Notas"
+      icon: fa-table
+      href: notas.html
+      
+    - text: "Material de aula"
+      icon: fa-graduation-cap
+      menu:
+
+        - text: "---------" 
+
+        - text: "..."
+          icon: fa-arrow-right
+          href:
+
+
+    - text: "Exercícios sugeridos"
+      icon: fa-pen
+      menu:
+
+        - text: "---------" 
+
+        - text: "..."
+          icon: fa-arrow-right
+          href: 
+
+        - text: "---------" 
+        
+
+  right:
+    - text: "PJ"
+      icon: fa-user 
+      href: http://leg.ufpr.br/~paulojus/
+      
+    - text: "Lineu A.C.F"
+      icon: fa-user 
+      href: https://lineu96.github.io/
+      
+    - icon: fa-github 
+      href: https://github.com/lineu96
+
+        
+output:
+  html_document:
+    theme: yeti
+    # cerulean 
+    highlight: textmate
+    #include:
+    #  after_body: footer.html
+    #css: styles.css
+
+    # THEMES
+    # default, cerulean, journal, 
+    # flatly, darkly, readable, 
+    # spacelab, united, cosmo, 
+    # lumen, paper, sandstone, 
+    # simplex, and yeti
+    includes:
+      
+      #before_body: header.html
+      

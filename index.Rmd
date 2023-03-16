@@ -1,0 +1,173 @@
+---
+title: "Estatística Básica"
+subtitle: |
+  | Prof. Me. Lineu Alberto Cavazani de Freitas
+  | Prof. Dr. Paulo Justiniano Ribeiro Jr
+author: |
+  |
+  | 2023/01 - Bacharelado em Estatística
+output:
+  html_document:                    
+    #toc: true                       
+    #toc_depth: 3                    
+    #toc_float:                      
+    #  collapsed: true
+    #  smooth_scroll: true
+    #number_sections: true           
+    #theme: default
+    #spacelab
+    #default,cerulean,journal,flatly,readable,spacelab,
+    #united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    highlight: espresso
+    #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    fig_width: 7                    
+    fig_height: 6                   
+    fig_caption: true               
+    fig_align: 'center'
+    #code_folding: hide              
+#    keep_md: true
+---
+
+---
+
+# {.tabset .tabset-fade .tabset-pills}
+
+## Detalhes da oferta
+
+ - **Disciplina**: CE301 - Estatísica Básica.
+
+ - **Curso**: Estatística.
+
+ - **Período**: Primeiro semestre de 2023.
+
+ - **Locais e horários**:
+    - Segunda, 20:45 - 22:15, LOCAL.
+    - Terça, 19:00 - 20:30, LOCAL.
+    - Quarta, 20:45 - 22:15, LOCAL.
+    - Quinta, 19:00 - 20:30, LOCAL.
+
+\ 
+
+ - **Horários de atendimento**: a combinar.
+
+ - **Frequência**: de acordo com as normas da Universidade, mínimo de 75%.
+
+ - **Datas importantes**:
+    - **20/03/23**: início do período letivo.
+    - **01/07/23**: término do período letivo.
+    - **03/07/23 a 08/07/23**: semana de exames finais.
+
+---
+
+## Avaliação
+
+O conteúdo de Estatística básica tem uma separação natural em 3 partes. Para cada uma destas partes serão feitas 2 avaliações.
+
+**Avaiação 1**
+
+  - Avaliação escrita e presencial. Vale 20% da nota.
+  - Atividade avaliativa em grupo. Vale 10% da nota.
+ 
+**Avaiação 2**
+
+  - Avaliação escrita e presencial. Vale 20% da nota.
+  - Atividade avaliativa em grupo. Vale 10% da nota.
+
+**Avaiação 3**
+
+  - Avaliação escrita e presencial. Vale 20% da nota.
+  - Atividade avaliativa em grupo. Vale 10% da nota.
+
+Os 10% restantes serão definidos ao decorrer do semestre.
+
+**ATENÇÃO**: não haverá segunda chamada de atividades avaliativas em grupo. Ao perder uma atividade, a nota é 0.
+
+---
+
+## Programa e objetivos
+
+O objetivo da disciplina é capacitar os alunos em conceitos básicos de Estatística que permitam a interpretação crítica de resultados de análises e procedimentos estatísticos, bem como a execução de procedimentos e análises estatística básicas. 
+
+O curso compreende três grandes tópicos:
+
+ 1. Análise descritiva e exploratória de dados.
+ 2. Noções de probabilidades e distribuições de probabilidades.
+ 3. Introdução à procedimentos de inferência estatística.
+
+---
+
+
+## Referências bibliográficas
+
+### Material de apoio
+
+Playlist de Estatística Básica do Departamento de Estatística: http://www.leg.ufpr.br/~paulojus/estbas/.
+
+### Referências básicas
+
+ - Bussab, WO; Morettin, PA. Estatística Básica. São Paulo: Editora Saraiva, 2017 (9ª Edição).
+
+ - Magalhães, MN; Lima, ACP. Noções de Probabilidade e Estatística. São Paulo: EDUSP, 2015 (7ª edição).
+
+ - Montgomery, DC; Runger, GC. Estatística aplicada e probabilidade para engenheiros. Rio de Janeiro: LTC Editora, 2012 (5ª Edição).
+
+
+### Referências complementares
+ 
+ - Andrade, DF; Ogliari, PJ. Estatística para as ciências agrárias e biológicas, com noções de experimentação. Florianópolis: Editora da UFSC, 2013.
+
+ - Dantas, CAB. Probabilidade: um curso introdutório. São Paulo: EDUSP, 2008.
+
+ - Morettin, LG. Estatística básica: probabilidade e inferência. São Paulo: Pearson, 2010.
+
+ - Navidi, W. Probabilidade e estatística para ciências exatas. Porto Alegre: Bookman, 2012.
+
+ - Spiegel, MR; Schiller, J; Srinivasan, A. Probabilidade e estatística. Porto Alegre: Bookman, 2013.
+
+---
+
+## Informações de contato
+
+**Professores responsáveis**: 
+
+  - Prof Me. Lineu Alberto Cavazani de Freitas.
+  - Prof Dr. Paulo Justiniano Ribeiro Jr.
+
+**Comunicação**: 
+
+  - Como plataforma de comunicação será utilizado o Microsoft Teams da UFPR.
+  - Para conversas particulares contatar via chat privado do Teams ou pelos e-mails lineu.alberto@ufpr.br e paulojus@ufpr.br.
+
+**Salas dos professores**:
+
+  - Centro politécnico.
+  - Prédio do setor de ciências exatas (PA).
+  - Departamento de Estatística (2º andar).
+  - Laboratório de Estatística e Geoinformação (sala 232)
+      - Prof. Lineu: sala 225.
+      - Prof. PJ: sala 230.
+
+---
+
+# 
+
+<center>
+
+<table><tr>
+
+<td> <img src="img/ufpr-transparent-600px.png" alt="Drawing" style="width: 200px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/dest-texto-2.png" alt="Drawing" style="width: 250px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/leg.png" alt="Drawing" style="width: 300px;"/> </td>
+
+</center>
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

@@ -1,0 +1,173 @@
+---
+title: "Estatística Básica"
+subtitle: |
+  | Prof. Me. Lineu Alberto Cavazani de Freitas
+  | Prof. Dr. Paulo Justiniano Ribeiro Jr
+author: |
+  |
+  | 2023/01 - Bacharelado em Estatística
+output:
+  html_document:                    
+    #toc: true                       
+    #toc_depth: 3                    
+    #toc_float:                      
+    #  collapsed: true
+    #  smooth_scroll: true
+    #number_sections: true           
+    #theme: default
+    #spacelab
+    #default,cerulean,journal,flatly,readable,spacelab,
+    #united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    highlight: espresso
+    #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    fig_width: 7                    
+    fig_height: 6                   
+    fig_caption: true               
+    fig_align: 'center'
+    #code_folding: hide              
+#    keep_md: true
+---
+
+---
+
+# Notas e frequência
+
+Busque sua situação digitando seu GRR na caixa "Search".
+
+\
+
+```{r, echo=FALSE}
+
+### Medidas de posição
+
+posicao <- function(vetor){
+  table <- data.frame(Minimo = quantile(vetor)[1],
+                      Quartil_1 = quantile(vetor)[2],
+                      Media = mean(vetor),
+                      Mediana = quantile(vetor)[3],
+                      Quartil_3 = quantile(vetor)[4],
+                      Maximo = quantile(vetor)[5])
+  
+  row.names(table) <- NULL
+  
+  table  
+}
+
+#----------------------------------------------------------------------
+
+### Medidas de dispersao
+
+dispersao <- function(vetor){
+  table <- data.frame(Amplitude = diff(range(vetor)),
+                      Variancia = var(vetor),
+                      Desvio_padrao = sd(vetor)#,
+                      #Coef_variacao = 100*sd(vetor)/mean(vetor)
+  )
+  
+  table
+}
+
+#----------------------------------------------------------------------
+
+notas <- read.csv2('notas.csv')
+
+DT::datatable(notas, class = 'cell-border stripe',
+              rownames = F,
+              #filter = 'top',
+              editable = T
+              )
+
+```
+
+
+---
+
+# Análise das notas {.tabset .tabset-fade .tabset-pills}
+
+## S1
+<center>
+```{r, echo=FALSE}
+pander::pander(posicao(notas$S1))
+pander::pander(posicao(notas$S2))
+```
+</center>
+
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=TRUE, echo = FALSE, warning=FALSE}
+library(ggplot2)
+library(ggpubr)
+
+p1 = ggplot(notas) + 
+  geom_histogram(aes(x=S1,
+                     y=..density..), 
+                 position="identity",
+                 col = 1,
+                 lwd = 1,
+                 breaks = hist(notas$S1, plot = FALSE)$breaks) + 
+  geom_density(aes(x=S1,
+                   y=..density..),
+               col = 4,
+               lwd = 1) + 
+  ylab("Densidade") +
+  xlab("") +
+  ggtitle("Sabatina 1")+
+  theme_classic() + theme(legend.position = 'none',
+                          plot.title = element_text(family = "Helvetica", 
+                                                    face = "bold", 
+                                                    size = (20),
+                                                    hjust = 0.5),
+                          axis.title = element_text(face = "bold",
+                                                    size = 15),
+                          text = element_text(size=15))
+
+p2 = ggplot(data = notas, 
+            mapping = aes(y=S1, x='1')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+ 
+  ylab("Notas") +
+  xlab("") +
+  #ggtitle("Titulo")+
+  theme_classic() + theme(legend.position = 'none',
+                          plot.title = element_text(family = "Helvetica", 
+                                                    face = "bold", 
+                                                    size = (20),
+                                                    hjust = 0.5),
+                          axis.title = element_text(face = "bold",
+                                                    size = 15),
+                          axis.text.y=element_blank(),
+                          text = element_text(size=15)) +coord_flip()
+
+ggarrange(p1, p2, 
+          heights = c(2, 1), 
+          align = "hv", 
+          ncol = 1, 
+          nrow = 2)
+```
+
+---
+
+<center>
+
+<table><tr>
+
+<td> <img src="img/ufpr-transparent-600px.png" alt="Drawing" style="width: 200px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/dest-texto-2.png" alt="Drawing" style="width: 250px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/leg.png" alt="Drawing" style="width: 300px;"/> </td>
+
+</center>
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>

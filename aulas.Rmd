@@ -1,0 +1,170 @@
+---
+title: "Estatística Básica"
+subtitle: |
+  | Prof. Me. Lineu Alberto Cavazani de Freitas
+  | Prof. Dr. Paulo Justiniano Ribeiro Jr
+author: |
+  |
+  | 2023/01 - Bacharelado em Estatística
+output:
+  html_document:                    
+    #toc: true                       
+    #toc_depth: 3                    
+    #toc_float:                      
+    #  collapsed: true
+    #  smooth_scroll: true
+    #number_sections: true           
+    #theme: default
+    #spacelab
+    #default,cerulean,journal,flatly,readable,spacelab,
+    #united,cosmo,lumen,paper,sandstone,simplex,yeti
+    
+    highlight: espresso
+    #default, tango, pygments, kate, monochrome, espresso, zenburn, haddock, and textmate
+    #css: styles.css                
+    fig_width: 7                    
+    fig_height: 6                   
+    fig_caption: true               
+    fig_align: 'cen(ter)'
+    #code_folding: hide              
+#    keep_md: true
+---
+
+---
+
+# Histórico de aulas do curso
+
+**Semana 1**
+
+ - 20/03/23	(seg) - Aula 1 - **Recepção PET Estatística**
+ - 21/03/23	(ter) - Aula 2 - **Apresentação perfil da turma**
+ - 23/03/23	(qui) - Aula 3 - **Revisão tópicos de matemátia**
+ - 24/03/23	(sex) - Aula 4 - **Ambientação labs DINF**
+
+**Semana 2**
+
+ - 27/03/23	(seg) - Aula 5
+ - 28/03/23	(ter) - Aula 6
+ - 30/03/23	(qui) - Aula 7
+ - 31/03/23	(sex) - Aula 8
+
+**Semana 3**
+
+ - 03/04/23	(seg) - Aula 9
+ - 04/04/23	(ter) - Aula 10
+ - 06/04/23	(qui) - Aula 11
+ - 07/04/23	(sex) - **Feriado: (sex)ta-feira Santa.**
+
+**Semana 4**
+
+ - 10/04/23	(seg) - Aula 12
+ - 11/04/23	(ter) - Aula 13
+ - 13/04/23	(qui) - Aula 14
+ - 14/04/23	(sex) - Aula 15
+
+**Semana 5**
+
+ - 17/04/23	(seg) - Aula 16
+ - 18/04/23	(ter) - Aula 17
+ - 20/04/23	(qui) - Aula 18
+ - 21/04/23	(sex) - Aula 19
+
+**Semana 6**
+
+ - 24/04/23	(seg) - **Feriado: Tiradentes.**
+ - 25/04/23	(ter) - Aula 20
+ - 27/04/23	(qui) - Aula 21
+ - 28/04/23	(sex) - Aula 22
+
+**Semana 7**
+
+ - 01/05/23	(seg) - **Feriado: Dia do Trabalho.**
+ - 02/05/23	(ter) - Aula 23
+ - 04/05/23	(qui) - Aula 24
+ - 05/05/23	(sex) - Aula 25
+
+**Semana 8**
+
+ - 08/05/23	(seg) - Aula 26
+ - 09/05/23	(ter) - Aula 27
+ - 11/05/23	(qui) - Aula 28
+ - 12/05/23	(sex) - Aula 29
+
+**Semana 9**
+
+ - 15/05/23	(seg) - Aula 30
+ - 16/05/23	(ter) - Aula 31
+ - 18/05/23	(qui) - Aula 32
+ - 19/05/23	(sex) - Aula 33
+
+**Semana 10**
+
+ - 22/05/23	(seg) - Aula 34
+ - 23/05/23	(ter) - Aula 35
+ - 25/05/23	(qui) - Aula 36
+ - 26/05/23	(sex) - Aula 37
+
+**Semana 11**
+
+ - 29/05/23	(seg) - Aula 38
+ - 30/05/23	(ter) - Aula 39
+ - 01/06/23	(qui) - **Aula 40/Feira de Cursos e Profissões.**
+ - 02/06/23	(sex) - **Aula 41/Feira de Cursos e Profissões.**
+
+**Semana 12**
+
+ - 05/06/23	(seg) - Aula 42
+ - 06/06/23	(ter) - Aula 43
+ - 08/06/23	(qui) - **Feriado: Corpus Christi.**
+ - 09/06/23	(sex) - **Feriado: Corpus Christi.**
+
+**Semana 13**
+
+ - 12/06/23	(seg) - Aula 44
+ - 13/06/23	(ter) - Aula 45
+ - 15/06/23	(qui) - Aula 46
+ - 16/06/23	(sex) - Aula 47
+
+**Semana 14**
+
+ - 19/06/23	(seg) - Aula 48
+ - 20/06/23	(ter) - Aula 49
+ - 22/06/23	(qui) - Aula 50
+ - 23/06/23	(sex) - Aula 51
+
+**Semana 15**
+
+ - 26/06/23	(seg) - Aula 52
+ - 27/06/23	(ter) - Aula 53
+ - 29/06/23	(qui) - Aula 54
+ - 30/06/23	(sex) - Aula 55
+ - 01/07/23	(sáb) - **Término do período letivo 2023/1.**
+
+**Semana 1**
+
+ - 03/07/23	(seg) - **Período de EXAMES FINAIS.**
+ - 04/07/23	(ter) - **Período de EXAMES FINAIS.**
+ - 06/07/23	(qui) - **Período de EXAMES FINAIS.**
+ - 07/07/23	(sex) - **Período de EXAMES FINAIS.**
+
+
+---
+
+<center>
+
+<table><tr>
+
+<td> <img src="img/ufpr-transparent-600px.png" alt="Drawing" style="width: 200px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/dest-texto-2.png" alt="Drawing" style="width: 250px;"/> </td>
+
+<td> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </td>
+
+<td> <img src="img/leg.png" alt="Drawing" style="width: 300px;"/> </td>
+
+</center>
+
+
+<div class="tocify-extend-page" data-unique="tocify-extend-page" style="height: 0;"></div>
