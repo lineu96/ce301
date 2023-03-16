@@ -140,7 +140,7 @@ output:
  - 30/06/23	(sex) - Aula 55
  - 01/07/23	(sáb) - **Término do período letivo 2023/1.**
 
-**Semana 1**
+**Exames**
 
  - 03/07/23	(seg) - **Período de EXAMES FINAIS.**
  - 04/07/23	(ter) - **Período de EXAMES FINAIS.**
