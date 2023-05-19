@@ -32,122 +32,123 @@ output:
 
 ---
 
-# {.tabset .tabset-fade .tabset-pills}
+# Notas e frequência
 
-## Detalhes da oferta
+Busque sua situação digitando seu GRR na caixa "Search".
 
- - **Disciplina**: CE301 - Estatísica Básica.
+\
 
- - **Curso**: Estatística.
+```{r, echo=FALSE}
 
- - **Período**: Primeiro semestre de 2023.
+### Medidas de posição
 
- - **Locais e horários**:
-    - Segunda, 20:45 - 22:15, LOCAL.
-    - Terça, 19:00 - 20:30, LOCAL.
-    - Quarta, 20:45 - 22:15, LOCAL.
-    - Quinta, 19:00 - 20:30, LOCAL.
+posicao <- function(vetor){
+  table <- data.frame(Minimo = quantile(vetor, na.rm = T)[1],
+                      Quartil_1 = quantile(vetor, na.rm = T)[2],
+                      Media = mean(vetor, na.rm = T),
+                      Mediana = quantile(vetor, na.rm = T)[3],
+                      Quartil_3 = quantile(vetor, na.rm = T)[4],
+                      Maximo = quantile(vetor, na.rm = T)[5])
+  
+  row.names(table) <- NULL
+  
+  table  
+}
 
-\ 
+#----------------------------------------------------------------------
 
- - **Horários de atendimento**: a combinar.
+### Medidas de dispersao
 
- - **Frequência**: de acordo com as normas da Universidade, mínimo de 75%.
+dispersao <- function(vetor){
+  table <- data.frame(Amplitude = diff(range(vetor)),
+                      Variancia = var(vetor),
+                      Desvio_padrao = sd(vetor)#,
+                      #Coef_variacao = 100*sd(vetor)/mean(vetor)
+  )
+  
+  table
+}
 
- - **Datas importantes**:
-    - **20/03/23**: início do período letivo.
-    - **01/07/23**: término do período letivo.
-    - **03/07/23 a 08/07/23**: semana de exames finais.
+#----------------------------------------------------------------------
+
+notas <- read.csv("notas-faltas-ce301.csv", dec = ',', sep = ';')
+
+DT::datatable(notas[,c('GRR', 'P1.presencial')], class = 'cell-border stripe',
+              rownames = F,
+              #filter = 'top',
+              editable = T
+              )
+
+```
+
 
 ---
 
-## Avaliação
+# Análise das notas {.tabset .tabset-fade .tabset-pills}
 
-O conteúdo de Estatística básica tem uma separação natural em 3 partes. Para cada uma destas partes serão feitas 2 avaliações.
+## P1 presencial
+<center>
+```{r, echo=FALSE}
+pander::pander(posicao(notas$P1.presencial))
+```
+</center>
 
-**Avaiação 1**
+```{r, comment=FALSE, message=FALSE, fig.align='center', warning=TRUE, echo = FALSE, warning=FALSE}
+library(ggplot2)
+library(ggpubr)
 
-  - Avaliação escrita e presencial. Vale 20% da nota.
-  - Atividade avaliativa em grupo. Vale 10% da nota.
- 
-**Avaiação 2**
+p1 = ggplot(notas) + 
+  geom_histogram(aes(x=P1.presencial,
+                     y=..density..), 
+                 position="identity",
+                 col = 1,
+                 lwd = 1,
+                 breaks = seq(0,10,0.5)) + 
+  geom_density(aes(x=P1.presencial,
+                   y=..density..),
+               col = 4,
+               lwd = 1) + 
+  ylab("Densidade") +
+  xlab("") +
+  ggtitle("Prova 1 - presencial")+
+  theme_classic() + theme(legend.position = 'none',
+                          plot.title = element_text(family = "Helvetica", 
+                                                    face = "bold", 
+                                                    size = (20),
+                                                    hjust = 0.5),
+                          axis.title = element_text(face = "bold",
+                                                    size = 15),
+                          text = element_text(size=15))
 
-  - Avaliação escrita e presencial. Vale 20% da nota.
-  - Atividade avaliativa em grupo. Vale 10% da nota.
+p2 = ggplot(data = notas, 
+            mapping = aes(y=P1.presencial, x='1')) +
+  stat_boxplot(geom ='errorbar')+
+  geom_boxplot(alpha = 1)+
+  stat_summary(fun.y=mean, 
+               geom="point", 
+               shape=20, 
+               size=3, 
+               color="red", 
+               fill="red")+ 
+  ylab("Notas") +
+  xlab("") +
+  #ggtitle("Titulo")+
+  theme_classic() + theme(legend.position = 'none',
+                          plot.title = element_text(family = "Helvetica", 
+                                                    face = "bold", 
+                                                    size = (20),
+                                                    hjust = 0.5),
+                          axis.title = element_text(face = "bold",
+                                                    size = 15),
+                          axis.text.y=element_blank(),
+                          text = element_text(size=15)) +coord_flip()
 
-**Avaiação 3**
-
-  - Avaliação escrita e presencial. Vale 20% da nota.
-  - Atividade avaliativa em grupo. Vale 10% da nota.
-
-Os 10% restantes serão definidos ao decorrer do semestre.
-
-**ATENÇÃO**: não haverá segunda chamada de atividades avaliativas em grupo. Ao perder uma atividade, a nota é 0.
-
----
-
-## Programa e objetivos
-
-O objetivo da disciplina é capacitar os alunos em conceitos básicos de Estatística que permitam a interpretação crítica de resultados de análises e procedimentos estatísticos, bem como a execução de procedimentos e análises estatística básicas. 
-
-O curso compreende três grandes tópicos:
-
- 1. Análise descritiva e exploratória de dados.
- 2. Noções de probabilidades e distribuições de probabilidades.
- 3. Introdução à procedimentos de inferência estatística.
-
----
-
-
-## Referências bibliográficas
-
-### Material de apoio
-
-Playlist de Estatística Básica do Departamento de Estatística: http://www.leg.ufpr.br/~paulojus/estbas/.
-
-### Referências básicas
-
- - Bussab, WO; Morettin, PA. Estatística Básica. São Paulo: Editora Saraiva, 2017 (9ª Edição).
-
- - Magalhães, MN; Lima, ACP. Noções de Probabilidade e Estatística. São Paulo: EDUSP, 2015 (7ª edição).
-
- - Montgomery, DC; Runger, GC. Estatística aplicada e probabilidade para engenheiros. Rio de Janeiro: LTC Editora, 2012 (5ª Edição).
-
-
-### Referências complementares
- 
- - Andrade, DF; Ogliari, PJ. Estatística para as ciências agrárias e biológicas, com noções de experimentação. Florianópolis: Editora da UFSC, 2013.
-
- - Dantas, CAB. Probabilidade: um curso introdutório. São Paulo: EDUSP, 2008.
-
- - Morettin, LG. Estatística básica: probabilidade e inferência. São Paulo: Pearson, 2010.
-
- - Navidi, W. Probabilidade e estatística para ciências exatas. Porto Alegre: Bookman, 2012.
-
- - Spiegel, MR; Schiller, J; Srinivasan, A. Probabilidade e estatística. Porto Alegre: Bookman, 2013.
-
----
-
-## Informações de contato
-
-**Professores responsáveis**: 
-
-  - Prof Me. Lineu Alberto Cavazani de Freitas.
-  - Prof Dr. Paulo Justiniano Ribeiro Jr.
-
-**Comunicação**: 
-
-  - Como plataforma de comunicação será utilizado o Microsoft Teams da UFPR.
-  - Para conversas particulares contatar via chat privado do Teams ou pelos e-mails lineu.alberto@ufpr.br e paulojus@ufpr.br.
-
-**Salas dos professores**:
-
-  - Centro politécnico.
-  - Prédio do setor de ciências exatas (PA).
-  - Departamento de Estatística (2º andar).
-  - Laboratório de Estatística e Geoinformação (sala 232)
-      - Prof. Lineu: sala 225.
-      - Prof. PJ: sala 230.
+ggarrange(p1, p2, 
+          heights = c(2, 1), 
+          align = "hv", 
+          ncol = 1, 
+          nrow = 2)
+```
 
 ---
 

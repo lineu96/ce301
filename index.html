@@ -13,7 +13,7 @@
 
 <title>Estatística Básica</title>
 
-<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
@@ -30,6 +30,14 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.27/datatables.js"></script>
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -131,15 +139,11 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark the anchor link active (and if it's in a dropdown, also mark that active)
-  var dropdown = menuAnchor.closest('li.dropdown');
-  if (window.bootstrap) { // Bootstrap 4+
-    menuAnchor.addClass('active');
-    dropdown.find('> .dropdown-toggle').addClass('active');
-  } else { // Bootstrap 3
-    menuAnchor.parent().addClass('active');
-    dropdown.addClass('active');
-  }
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -168,8 +172,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -177,9 +181,16 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
+  content: "&#xe258;";
   border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -236,47 +247,6 @@ $(document).ready(function () {
   <a href="index.html">
     <span class="fa fa-home"></span>
      
-    Home
-  </a>
-</li>
-<li>
-  <a href="aulas.html">
-    <span class="fa fa-calendar"></span>
-     
-    Aulas
-  </a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fa fa-graduation-cap"></span>
-     
-    Material de aula
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li class="dropdown-header">...</li>
-  </ul>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <span class="fa fa-pen"></span>
-     
-    Exercícios sugeridos
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="divider"></li>
-    <li class="dropdown-header">...</li>
-    <li class="divider"></li>
-  </ul>
-</li>
-<li>
-  <a href="notas.html">
-    <span class="fa fa-table"></span>
-     
     Notas
   </a>
 </li>
@@ -322,144 +292,57 @@ Prof. Dr. Paulo Justiniano Ribeiro Jr</div></h3>
 
 
 <hr />
-<div id="section"
+<div id="notas-e-frequência" class="section level1">
+<h1>Notas e frequência</h1>
+<p>Busque sua situação digitando seu GRR na caixa “Search”.</p>
+<p><br />
+</p>
+<div id="htmlwidget-e102f6d3f0d43915e97f" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e102f6d3f0d43915e97f">{"x":{"filter":"none","vertical":false,"editable":{"target":"cell","disable":{"columns":null},"numeric":[1],"area":[]},"data":[["GRR20233873","GRR20233878","GRR20235311","GRR20233903","GRR20207013","GRR20222224","GRR20235317","GRR20233909","GRR20190496","GRR20214497","GRR20222245","GRR20233897","GRR20222227","GRR20185627","GRR20222232","GRR20207043","GRR20233916","GRR20233879","GRR20235315","GRR20233892","GRR20233896","GRR20233912","GRR20233907","GRR20222264","GRR20233886","GRR20222240","GRR20207109","GRR20235501","GRR20235312","GRR20233900","GRR20233913","GRR20233906","GRR20222229","GRR20212996","GRR20233875","GRR20213013","GRR20233876","GRR20233902","GRR20233895","GRR20233908","GRR20207143","GRR20207149","GRR20233885","GRR20233904","GRR20233910","GRR20233917","GRR20233911","GRR20233901","GRR20233893","GRR20233882","GRR20222254","GRR20233884","GRR20222235","GRR20235733","GRR20233881","GRR20234437","GRR20233877","GRR20233888","GRR20233883","GRR20235505","GRR20233905","GRR20233890","GRR20233874","GRR20233899","GRR20233891"],[null,1.06,8.3,6.9,null,4,6.7,7.3,2.8,null,3.2,7.6,null,null,null,null,6.5,4.7,7.1,4.6,0.14,7.2,8.9,4.8,null,null,4.4,4.8,6,2.2,null,8.1,null,null,null,null,9.6,4.1,3.8,null,4.1,null,8.5,6.7,7,4.3,7.3,3.8,5.7,7,null,1.8,null,null,8.2,6.7,7.9,6,4.4,2.9,5.1,4.3,null,5.1,6.7]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th>GRR<\/th>\n      <th>P1.presencial<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<hr />
+</div>
+<div id="análise-das-notas"
 class="section level1 tabset tabset-fade tabset-pills">
-<h1 class="tabset tabset-fade tabset-pills"></h1>
-<div id="detalhes-da-oferta" class="section level2">
-<h2>Detalhes da oferta</h2>
-<ul>
-<li><p><strong>Disciplina</strong>: CE301 - Estatísica Básica.</p></li>
-<li><p><strong>Curso</strong>: Estatística.</p></li>
-<li><p><strong>Período</strong>: Primeiro semestre de 2023.</p></li>
-<li><p><strong>Locais e horários</strong>:</p>
-<ul>
-<li>Segunda, 20:45 - 22:15, LOCAL.</li>
-<li>Terça, 19:00 - 20:30, LOCAL.</li>
-<li>Quarta, 20:45 - 22:15, LOCAL.</li>
-<li>Quinta, 19:00 - 20:30, LOCAL.</li>
-</ul></li>
-</ul>
-<p> </p>
-<ul>
-<li><p><strong>Horários de atendimento</strong>: a combinar.</p></li>
-<li><p><strong>Frequência</strong>: de acordo com as normas da
-Universidade, mínimo de 75%.</p></li>
-<li><p><strong>Datas importantes</strong>:</p>
-<ul>
-<li><strong>20/03/23</strong>: início do período letivo.</li>
-<li><strong>01/07/23</strong>: término do período letivo.</li>
-<li><strong>03/07/23 a 08/07/23</strong>: semana de exames finais.</li>
-</ul></li>
-</ul>
-<hr />
-</div>
-<div id="avaliação" class="section level2">
-<h2>Avaliação</h2>
-<p>O conteúdo de Estatística básica tem uma separação natural em 3
-partes. Para cada uma destas partes serão feitas 2 avaliações.</p>
-<p><strong>Avaiação 1</strong></p>
-<ul>
-<li>Avaliação escrita e presencial. Vale 20% da nota.</li>
-<li>Atividade avaliativa em grupo. Vale 10% da nota.</li>
-</ul>
-<p><strong>Avaiação 2</strong></p>
-<ul>
-<li>Avaliação escrita e presencial. Vale 20% da nota.</li>
-<li>Atividade avaliativa em grupo. Vale 10% da nota.</li>
-</ul>
-<p><strong>Avaiação 3</strong></p>
-<ul>
-<li>Avaliação escrita e presencial. Vale 20% da nota.</li>
-<li>Atividade avaliativa em grupo. Vale 10% da nota.</li>
-</ul>
-<p>Os 10% restantes serão definidos ao decorrer do semestre.</p>
-<p><strong>ATENÇÃO</strong>: não haverá segunda chamada de atividades
-avaliativas em grupo. Ao perder uma atividade, a nota é 0.</p>
-<hr />
-</div>
-<div id="programa-e-objetivos" class="section level2">
-<h2>Programa e objetivos</h2>
-<p>O objetivo da disciplina é capacitar os alunos em conceitos básicos
-de Estatística que permitam a interpretação crítica de resultados de
-análises e procedimentos estatísticos, bem como a execução de
-procedimentos e análises estatística básicas.</p>
-<p>O curso compreende três grandes tópicos:</p>
-<ol style="list-style-type: decimal">
-<li>Análise descritiva e exploratória de dados.</li>
-<li>Noções de probabilidades e distribuições de probabilidades.</li>
-<li>Introdução à procedimentos de inferência estatística.</li>
-</ol>
-<hr />
-</div>
-<div id="referências-bibliográficas" class="section level2">
-<h2>Referências bibliográficas</h2>
-<div id="material-de-apoio" class="section level3">
-<h3>Material de apoio</h3>
-<p>Playlist de Estatística Básica do Departamento de Estatística: <a
-href="http://www.leg.ufpr.br/~paulojus/estbas/"
-class="uri">http://www.leg.ufpr.br/~paulojus/estbas/</a>.</p>
-</div>
-<div id="referências-básicas" class="section level3">
-<h3>Referências básicas</h3>
-<ul>
-<li><p>Bussab, WO; Morettin, PA. Estatística Básica. São Paulo: Editora
-Saraiva, 2017 (9ª Edição).</p></li>
-<li><p>Magalhães, MN; Lima, ACP. Noções de Probabilidade e Estatística.
-São Paulo: EDUSP, 2015 (7ª edição).</p></li>
-<li><p>Montgomery, DC; Runger, GC. Estatística aplicada e probabilidade
-para engenheiros. Rio de Janeiro: LTC Editora, 2012 (5ª
-Edição).</p></li>
-</ul>
-</div>
-<div id="referências-complementares" class="section level3">
-<h3>Referências complementares</h3>
-<ul>
-<li><p>Andrade, DF; Ogliari, PJ. Estatística para as ciências agrárias e
-biológicas, com noções de experimentação. Florianópolis: Editora da
-UFSC, 2013.</p></li>
-<li><p>Dantas, CAB. Probabilidade: um curso introdutório. São Paulo:
-EDUSP, 2008.</p></li>
-<li><p>Morettin, LG. Estatística básica: probabilidade e inferência. São
-Paulo: Pearson, 2010.</p></li>
-<li><p>Navidi, W. Probabilidade e estatística para ciências exatas.
-Porto Alegre: Bookman, 2012.</p></li>
-<li><p>Spiegel, MR; Schiller, J; Srinivasan, A. Probabilidade e
-estatística. Porto Alegre: Bookman, 2013.</p></li>
-</ul>
+<h1 class="tabset tabset-fade tabset-pills">Análise das notas</h1>
+<div id="p1-presencial" class="section level2">
+<h2>P1 presencial</h2>
+<center>
+<table style="width:83%;">
+<colgroup>
+<col width="12%" />
+<col width="16%" />
+<col width="11%" />
+<col width="13%" />
+<col width="16%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Minimo</th>
+<th align="center">Quartil_1</th>
+<th align="center">Media</th>
+<th align="center">Mediana</th>
+<th align="center">Quartil_3</th>
+<th align="center">Maximo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.14</td>
+<td align="center">4.1</td>
+<td align="center">5.518</td>
+<td align="center">5.7</td>
+<td align="center">7.1</td>
+<td align="center">9.6</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
 <hr />
 </div>
 </div>
-<div id="informações-de-contato" class="section level2">
-<h2>Informações de contato</h2>
-<p><strong>Professores responsáveis</strong>:</p>
-<ul>
-<li>Prof Me. Lineu Alberto Cavazani de Freitas.</li>
-<li>Prof Dr. Paulo Justiniano Ribeiro Jr.</li>
-</ul>
-<p><strong>Comunicação</strong>:</p>
-<ul>
-<li>Como plataforma de comunicação será utilizado o Microsoft Teams da
-UFPR.</li>
-<li>Para conversas particulares contatar via chat privado do Teams ou
-pelos e-mails <a href="mailto:lineu.alberto@ufpr.br"
-class="email">lineu.alberto@ufpr.br</a> e <a
-href="mailto:paulojus@ufpr.br" class="email">paulojus@ufpr.br</a>.</li>
-</ul>
-<p><strong>Salas dos professores</strong>:</p>
-<ul>
-<li>Centro politécnico.</li>
-<li>Prédio do setor de ciências exatas (PA).</li>
-<li>Departamento de Estatística (2º andar).</li>
-<li>Laboratório de Estatística e Geoinformação (sala 232)
-<ul>
-<li>Prof. Lineu: sala 225.</li>
-<li>Prof. PJ: sala 230.</li>
-</ul></li>
-</ul>
-<hr />
-</div>
-</div>
-<div id="section-1" class="section level1">
+<div id="section" class="section level1">
 <h1></h1>
 <center>
 <table>
